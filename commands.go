@@ -32,45 +32,45 @@ type CMD struct {
 
 var (
 	MainCMDs = []CMD{
-		{"=`user`", dmCMD, "`msg`", "DM `user` with `msg`"}, // won't actually run, here just to show in docs
-		{"users", usersCMD, "", "List users"},
-		{"color", colorCMD, "`color`", "Change your name's color"},
-		{"exit", exitCMD, "", "Leave the chat"},
-		{"help", helpCMD, "", "Show help"},
-		{"man", manCMD, "`cmd`", "Get help for a specific command"},
-		{"emojis", emojisCMD, "", "See a list of emojis"},
-		{"bell", bellCMD, "on|off|all", "ANSI bell on pings (on), never (off) or for every message (all)"},
-		{"clear", clearCMD, "", "Clear the screen"},
-		{"hang", hangCMD, "`char`|`word`", "Play hangman"}, // won't actually run, here just to show in docs
-		{"tic", ticCMD, "`cell num`", "Play tic tac toe!"},
-		{"devmonk", devmonkCMD, "", "Test your typing speed"},
-		{"cd", cdCMD, "#`room`|`user`", "Join #room, DM user or run cd to see a list"}, // won't actually run, here just to show in docs
-		{"tz", tzCMD, "`zone` [24h]", "Set your IANA timezone (like tz Asia/Dubai) and optionally set 24h"},
-		{"nick", nickCMD, "`name`", "Change your username"},
-		{"prompt", promptCMD, "`prompt`", "Change your prompt. Run `man prompt` for more info"},
-		{"pronouns", pronounsCMD, "`@user`|`pronouns`", "Set your pronouns or get another user's"},
-		{"theme", themeCMD, "`name`|list", "Change the syntax highlighting theme"},
-		{"rest", commandsRestCMD, "", "Uncommon commands list"}}
+		{"=`user`", dmCMD, "`msg`", "用 msg 向 user 发送私信"}, // won't actually run, here just to show in docs
+		{"users", usersCMD, "", "列出当前用户列表"},
+		{"color", colorCMD, "`color`", "变更用户名颜色"},
+		{"exit", exitCMD, "", "离开聊天"},
+		{"help", helpCMD, "", "显示帮助信息"},
+		{"man", manCMD, "`cmd`", "获取特定命令帮助信息"},
+		{"emojis", emojisCMD, "", "查看表情列表"},
+		{"bell", bellCMD, "on|off|all", "设置 ANSI 铃声在提及时开启 (on) , 从不开启 (off) 或每条消息都开启 (all)"},
+		{"clear", clearCMD, "", "清理消息"},
+		{"hang", hangCMD, "猜字游戏"}, // won't actually run, here just to show in docs
+		{"tic", ticCMD, "井字游戏"},
+		{"devmonk", devmonkCMD, "", "测试打字速度"},
+		{"cd", cdCMD, "#`room`|`user`", "加入#room、与用户私聊或运行 cd 以查看列表"}, // won't actually run, here just to show in docs
+		{"tz", tzCMD, "`zone` [24h]", "设置 IANA 时区 (例如 tz Asia/Shanghai ) 并可选地设置 24 小时制"},
+		{"nick", nickCMD, "`name`", "更改用户名"},
+		{"prompt", promptCMD, "`prompt`", "更改提示符。运行 man prompt 以获取更多信息"},
+		{"pronouns", pronounsCMD, "`@user`|`pronouns`", "设置您的代词或获取其他用户的代词"},
+		{"theme", themeCMD, "`name`|list", "更改语法高亮主题"},
+		{"rest", commandsRestCMD, "", "不常用命令列表"}}
 	RestCMDs = []CMD{
-		// {"people", peopleCMD, "", "See info about nice people who joined"},
-		{"bio", bioCMD, "[`user`]", "Get a user's bio or set yours"},
-		{"id", idCMD, "`user`", "Get a unique ID for a user (hashed key)"},
-		{"admins", adminsCMD, "", "Print the ID (hashed key) for all admins"},
-		{"eg-code", exampleCodeCMD, "[big]", "Example syntax-highlighted code"},
-		{"lsbans", listBansCMD, "", "List banned IDs"},
-		{"ban", banCMD, "`user` [`reason`] [`dur`]", "Ban <user> and optionally, with a reason or duration (admin)"},
-		{"unban", unbanCMD, "IP|ID [dur]", "Unban a person (admin)"},
-		{"mute", muteCMD, "`user`", "Mute <user> (admin)"},
-		{"unmute", unmuteCMD, "`user`", "Unmute <user> (admin)"},
-		{"kick", kickCMD, "`user`", "Kick <user> (admin)"},
-		{"art", asciiArtCMD, "", "Show some panda art"},
-		{"pwd", pwdCMD, "", "Show your current room"},
+		// {"people", peopleCMD, "", "查看加入者信息"},
+		{"bio", bioCMD, "[`user`]", "获取使用者的个人简介"},
+		{"id", idCMD, "`user`", "获取用户的 ID (hash 值)"},
+		{"admins", adminsCMD, "", "打印所有 Admin 的 hash 值"},
+		{"eg-code", exampleCodeCMD, "[big]", "Code 高亮案例"},
+		{"lsbans", listBansCMD, "", "列举被 Ban 的 ID"},
+		{"ban", banCMD, "`user` [`reason`] [`dur`]", "Ban <user> 并且设置相关事件"},
+		{"unban", unbanCMD, "IP|ID [dur]", "取消 Ban (需要 Admin 操作)"},
+		{"mute", muteCMD, "`user`", "对 <user> 禁言 (需要 Admin 操作)"},
+		{"unmute", unmuteCMD, "`user`", "取消禁言 (需要 Admin 操作)"},
+		{"kick", kickCMD, "`user`", "踢出 <user> (需要 Admin 操作)"},
+		{"art", asciiArtCMD, "", "显示一张熊猫图？（困惑"},
+		{"pwd", pwdCMD, "", "显示当前所在 Room"},
 		//		{"sixel", sixelCMD, "<png url>", "Render an image in high quality"},
 		{"shrug", shrugCMD, "", `¯\\\_(ツ)\_/¯`}, // won't actually run, here just to show in docs
-		{"uname", unameCMD, "", "Show build info"},
-		{"uptime", uptimeCMD, "", "Show server uptime"},
+		{"uname", unameCMD, "", "显示构建信息"},
+		{"uptime", uptimeCMD, "", "显示 Server 运行事件"},
 		{"8ball", eightBallCMD, "`question`", "Always tells the truth."},
-		{"rmdir", rmdirCMD, "#`room`", "Remove an empty room"},
+		{"rmdir", rmdirCMD, "#`room`", "删除一个空 Room"},
 	}
 	SecretCMDs = []CMD{
 		{"ls", lsCMD, "???", "???"},
